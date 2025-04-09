@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 1200px) {
+    .a-btn {
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 5px !important;
+      right: 5px !important;
+    }
+  
+    .a-btn>p {
+      display: none;
+    }
+  
+    .MuiAccordionSummary-content>img {
+      width: 25px !important;
+      height: 25px !important;
+    }
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  @media (max-width: 900px) {
+    .title-bar {
+      justify-content: center;
+    }
+  
+    nav {
+      position: fixed;
+      padding: 5px 10px;
+      border-radius: 10px 10px 0px 0px;
+      display: flex;
+      bottom: 0;
+      z-index: 1002;
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
-  to {
-    transform: rotate(360deg);
+  
+  @media (max-width: 600px) {
+    .file-btn {
+      width: 70px;
+    }
+  
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+  
+    nav>button {
+      width: fit-content !important;
+    }
+  
+    nav>button>p {
+      display: none;
+    }
+  
+    .topbar {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .card>div>img {
+      width: 100%;
+    }
+  
+    .card>div {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+  
+    .sliders>div>div {
+      justify-content: center;
+      text-align: center;
+    }
+  
+    .a-btn {
+      width: fit-content;
+      /* position: relative !important; */
+    }
+    .board{
+      padding-bottom: 20px;
+    }
+  
+    .alerts-flex{
+      flex-direction: column;
+    }
+    .alerts-card{
+      width: 100%;
+    }
+  
+    .arrow-btns{
+      width: 50px;
+      height: 50px;
+      font-size: large;
+    }
   }
-}

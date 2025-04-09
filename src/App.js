@@ -15,6 +15,7 @@ import NPC from "./pages/NPC";
 import Phishing from "./pages/Phishing";
 import Sextortion from "./pages/Sextortion";
 import Hacking from "./pages/Hacking";
+import Tips from "./pages/Tips";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
               <Route path="phishing" element={<Phishing />} />
               <Route path="sextortion" element={<Sextortion />} />
               <Route path="hacking" element={<Hacking />} />
+              <Route path="tips" element={<Tips />} />
             </Route>
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} />

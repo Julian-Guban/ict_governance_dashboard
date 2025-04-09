@@ -43,7 +43,7 @@ function Navbar() {
     setSubtab(num);
   };
   return (
-    <nav style={{ display: "flex", justifyContent: "space-between", position: "relative"}}>
+    <nav style={{ display: "flex", justifyContent: "space-between"}}>
       <Button
         sx={tab === 1 ? active : inactive}
         onClick={() => navClick("/home")}
@@ -61,7 +61,7 @@ function Navbar() {
         >
           Agencies
         </MenuButton>
-        <MenuList sx={{backgroundColor: "#2c3957", paddingInline: '10px', zIndex: "1000"}}>
+        <MenuList sx={{backgroundColor: "#2c3957", paddingInline: '10px'}}>
         <Button
             sx={subtab === 1 ? active : inactive}
             onClick={() => tabClick("/agencies/dict", 1)}

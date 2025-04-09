@@ -42,18 +42,16 @@ function Home() {
   }, [setTab]);
 
   return (
-    <Center
-      padding={"20px"}
-      marginTop={"200px"}
-      width={"100%"}
-      flexDirection={"column"}
-    >
+    <Center padding={"20px"} width={"100%"} flexDirection={"column"}>
       <Text
         width={"inherit"}
         textAlign={"start"}
         fontWeight={"light"}
         color={"gray"}
         fontSize={"lg"}
+        paddingBottom={"10px"}
+        marginBottom={"10px"}
+        borderBottom={"1px solid"}
       >
         Home | General Information
       </Text>

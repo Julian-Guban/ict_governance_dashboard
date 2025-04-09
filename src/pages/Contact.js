@@ -96,18 +96,19 @@ function Contact() {
     <Center
       width={"100%"}
       height={"100%"}
-      marginTop={"100px"}
       flexDirection={"column"}
+      padding={"20px"}
     >
       <Text
         width={"inherit"}
         textAlign={"start"}
         fontWeight={"light"}
-        paddingLeft={"20px"}
         color={"gray"}
         fontSize={"lg"}
+        paddingBottom={"10px"}
+        borderBottom={"1px solid"}
       >
-        Contact | Contact Informations
+        Contact | Agency Informations
       </Text>
       <Box display="flex" flexWrap="wrap" justifyContent="space-between">
         {agencies.map((agency, index) => (
@@ -198,7 +199,7 @@ function Contact() {
                 mr="2"
                 _hover={{
                   backgroundColor: "#000001d",
-                  color: "gray"
+                  color: "gray",
                 }}
                 onClick={() => handleNodeClick(agency)}
               >

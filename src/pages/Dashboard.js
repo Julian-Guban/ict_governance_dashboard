@@ -7,31 +7,56 @@ import { ContextProvider } from "../utils/contextProvider";
 function Dashboard() {
   return (
     <ContextProvider>
-      <Flex width={"100%"} height={"100vh"} alignItems={"center"} flexDirection={"column"} position={"relative"}>
+      <Flex
+        width="100%"
+        minHeight="100vh"
+        alignItems="center"
+        flexDirection="column"
+        position="relative"
+      >
         <header
-          style={{ width: "inherit", position: "sticky", right: "0", top: 0 }}
+          style={{
+            width: "100%",
+            position: "sticky",
+            right: "0",
+            top: 0,
+            zIndex: "100", // Ensure header stays on top
+          }}
         >
           <Flex
-            width={"inherit"}
-            height={"50px"}
-            background={"#2c3957"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-            padding={"0 30px"}
-            boxShadow={"0px 0px 5px #0000001a"}
-            zIndex={"100"}
+            width="100%"
+            height={{ base: "auto", md: "50px" }} // Adjust height for smaller screens
+            background="#2c3957"
+            justifyContent="space-between"
+            alignItems="center"
+            padding={{ base: "10px 30px", md: "0 30px" }} // Adjust padding for smaller screens
+            boxShadow="0px 0px 5px #0000001a"
+            flexDirection={{ base: "column", md: "row" }} // Stack on smaller screens
           >
-            <Text padding={"5px"} fontSize={"xl"} color={"white"} fontWeight={"bold"}>
+            <Text
+              padding="5px"
+              fontSize={{ base: "xl", md: "xl" }} // Adjust font size for smaller screens
+              color="white"
+              fontWeight="bold"
+              textAlign={{ base: "center", md: "left" }} // Center text on smaller screens
+            >
               ICT GOVERNANCE DASHBOARD
-            </Text>{" "}
+            </Text>
             <Navbar />
           </Flex>
         </header>
 
-        <Center width={"inherit"} height={"100%"} overflowY={"auto"} backgroundColor={"#ccd5e8"}>
+        <Center
+          width="100%"
+          flex="1" // Take remaining vertical space
+          alignItems={"flex-start"}
+          backgroundColor="#ccd5e8"
+          padding="20px" // Add padding around the content
+          border={"5px solid"}
+        >
+
           <Outlet />
         </Center>
-      
       </Flex>
     </ContextProvider>
   );

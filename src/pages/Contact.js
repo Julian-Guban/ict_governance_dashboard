@@ -128,7 +128,7 @@ function Contact() {
             borderRadius={"5px"}
             border={"2px solid #266fe4"}
             overflow="hidden"
-            margin="4"
+            margin="4 0px"
             display={"flex"}
             flexDirection={"column"}
             justifyContent={"space-between"}

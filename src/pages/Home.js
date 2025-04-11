@@ -69,6 +69,7 @@ function Home() {
       >
         <Center
           width={"100%"}
+          height={"fit-content"}
           flexDirection={"column"}
           backgroundColor={"#eff5fa"}
           border={"2px solid #266fe4"}
@@ -81,6 +82,9 @@ function Home() {
               fontWeight={"bold"}
               textTransform={"uppercase"}
               color={"#2c3957"}
+              whiteSpace={{ base: "nowrap", md: "nowrap", lg: "wrap" }}
+              overflow={{ base: "hidden", md: "hidden", lg: "visible" }}
+              textOverflow={{ base: "ellipsis", md: "ellipsis", lg: "clip" }}
             >
               Total Cybercrime cases :
             </Text>
@@ -121,7 +125,7 @@ function Home() {
         <Flex
           width={"100%"}
           height={"inherit"}
-          flexDirection={{base: "column", md: "row", lg: "row", xl: "column"}}
+          flexDirection={{ base: "column", md: "row", lg: "row", xl: "column" }}
           gap={"1em"}
           position={"relative"}
         >
@@ -134,7 +138,11 @@ function Home() {
             padding={"15px"}
             borderRadius={"5px"}
           >
-            <Text fontSize={"md"} fontWeight={"bold"} padding={"5px"}>
+            <Text
+              fontSize={"md"}
+              fontWeight={"bold"}
+              padding={"5px"}
+            >
               TOTAL ACTIVE ICT PROJECTS: 15
             </Text>
             <Flex justifyContent={"space-between"} width={"100%"}>
@@ -167,7 +175,7 @@ function Home() {
                     cx={70}
                     cy={70}
                     innerRadius={0}
-                    outerRadius={70}
+                    outerRadius={{base: 50, md: 70}}
                     fill="#8884d8"
                     paddingAngle={5}
                     dataKey="value"
@@ -277,6 +285,7 @@ function Home() {
             fontWeight={"bold"}
             textTransform={"capitalize"}
             color={"#2c3957"}
+            textAlign={"center"}
           >
             Department of Information and Communications Technology
           </Text>
@@ -301,6 +310,7 @@ function Home() {
             fontSize={"xx-large"}
             fontWeight={"bold"}
             textTransform={"uppercase"}
+            padding={"10px"}
             color={"#2c3957"}
           >
             DOJ
@@ -310,6 +320,7 @@ function Home() {
             fontWeight={"bold"}
             textTransform={"capitalize"}
             color={"#2c3957"}
+            textAlign={"center"}
           >
             Department of Justice - Cybercrime Task Force
           </Text>
@@ -343,6 +354,8 @@ function Home() {
             fontWeight={"bold"}
             textTransform={"capitalize"}
             color={"#2c3957"}
+            padding={"10px"}
+            textAlign={"center"}
           >
             National Bureau of Investigation - Cybercrime Division
           </Text>
@@ -376,6 +389,8 @@ function Home() {
             fontWeight={"bold"}
             textTransform={"capitalize"}
             color={"#2c3957"}
+            padding={"10px"}
+            textAlign={"center"}
           >
             National Privacy Commission
           </Text>

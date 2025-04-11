@@ -73,7 +73,12 @@ function Navbar() {
         color="white"
       />
       <Flex
-        display={{ base: isOpen ? "block" : "none", md: isOpen ? "block" : "none", lg: "flex" }} // Toggle visibility
+        display={{
+          base: isOpen ? "block" : "none",
+          md: isOpen ? "block" : "none",
+          lg: "flex",
+        }} // Toggle visibility
+        height={"fit-content"}
         flexDirection={{ base: "column", md: "row" }} // Stack on small screens
         position={{ base: "absolute", md: "absolute", lg: "relative" }}
         top={{ base: "55px", md: "55px", lg: "5px" }}
@@ -102,7 +107,7 @@ function Navbar() {
           <MenuList
             sx={{
               width: "fit-content",
-              display:"flex",
+              display: "flex",
               flexDirection: { base: "column", md: "column", lg: "row" },
               justifyContent: "center",
               alignItems: "center",
@@ -156,6 +161,13 @@ function Navbar() {
         >
           Projects
         </Button>
+        <hr
+          style={{
+            height: { base: "2px", lg: "100px" },
+            width: "1px",
+            backgroundColor: "gray",
+          }}
+        />
         <Button
           sx={tab === 5 ? active : inactive}
           onClick={() => navClick("/contact")}

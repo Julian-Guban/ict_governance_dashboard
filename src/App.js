@@ -1,5 +1,4 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import "./App.css";
 import Redirect from "./utils/redirectionRoute";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";

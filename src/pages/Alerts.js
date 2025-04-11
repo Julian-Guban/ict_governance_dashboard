@@ -13,7 +13,15 @@ const active = {
   zIndex: 10,
   overflow: "hidden",
   textOverflow: "ellipsis",
-  borderLeft: "10px solid #2c3957",
+  borderLeft: {
+    md: "0px",
+    lg: "10px solid #2c3957",
+  },
+  borderBottom: {
+    base: "10px solid #2c3957",
+    md: "10px solid #2c3957",
+    lg: "0px",
+  },
 };
 const inactive = {
   width: "100%",
@@ -63,15 +71,15 @@ function Alerts() {
       <Flex
         height={"100%"}
         width={"100%"}
-        flexDirection={"row"}
+        flexDirection={{ base: "column", md: "column", lg: "row" }}
         padding={"10px"}
         justifyContent={"space-around"}
         gap={"10px"}
       >
         <Flex
-          flexDirection={"column"}
+          flexDirection={{ base: "row", md: "row", lg: "column" }}
           gap={"10px"}
-          width={"20%"}
+          width={{ base: "100%", md: "100%", lg: "20%" }}
           padding={"10px"}
         >
           <Button

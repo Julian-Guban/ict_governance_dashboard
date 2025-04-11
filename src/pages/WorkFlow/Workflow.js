@@ -6,71 +6,98 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
+  Text, // Import Text component from Chakra UI
 } from "@chakra-ui/react";
 import "@xyflow/react/dist/style.css";
-import { MiniMap, Panel, ReactFlow } from "@xyflow/react";
-import React, { useContext, useEffect, useState } from "react";
-import {nodes, lines} from "../../utils/initialElements";
+import { MiniMap, ReactFlow } from "@xyflow/react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import GlobalContext from "../../utils/contextProvider";
 
-function Workflow() {
-  const [colorMode, setColorMode] = useState("dark");
+// Custom Node Component
+const CustomNode = ({ data }) => {
+  return (
+    <div>
+      <Text fontWeight="bold">{data.label}</Text>
+      <Text fontSize="sm" color="gray.500">
+        {data.position}
+      </Text>
+    </div>
+  );
+};
+
+function Workflow({ nodes, lines }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("");
-  const [nodeState, setNodeState] = useState(null); // For storing clicked node data
+  const [modalContent, setModalContent] = useState(null);
   const { setTab } = useContext(GlobalContext);
+
+  const nodeTypes = useCallback(() => ({ custom: CustomNode }), []);
 
   useEffect(() => {
     setTab(2);
-  }, [setTab]); 
-  // Open modal with node data
-  const handleNodeClick = (event, element) => {
+  }, [setTab]);
+
+  const handleNodeClick = useCallback((event, element) => {
     // Access the clicked node's data
     if (element && element.data) {
-      setNodeState(element.data); // Set state with node data
-      setModalContent(`Node ID: ${element.id}, Label: ${element.data.label}`);
+      setModalContent(element.data);
       setIsModalOpen(true); // Open modal with content
     }
-  };
-  const onChange = (evt) => {
-    setColorMode(evt.target.value);
-  };
-  
+  }, []);
+
   return (
-    <Box width="90%" height="90vh" >
+    <Box width="90%" height="65vh">
       <ReactFlow
         nodes={nodes}
         edges={lines}
         onNodeClick={handleNodeClick} // Capture node click
         fitView
-        attributionPosition="top-right"
+        nodeTypes={nodeTypes}
         style={{ backgroundColor: "transparent" }}
-        colorMode={colorMode}
         zoomOnScroll={false}
-        zoomOnPinch={false}
+        zoomOnPinch={true}
         zoomOnDoubleClick={false}
         draggable={false} // Disable node dragging
-        panOnDrag={false} // Disable pan on drag
+        panOnDrag={true} // Disable pan on drag
         panOnScroll={false} // Disable pan on scroll
       >
         <MiniMap />
-        <Panel position="top-right">
-          <select onChange={onChange} data-testid="colormode-select">
-            <option value="dark">Dark Mode</option>
-            <option value="light">Light Mode</option>
-          </select>
-        </Panel>
       </ReactFlow>
 
       {/* Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Node Details</ModalHeader>
+          <ModalHeader>
+            <Text
+              fontSize={"3xl"}
+              color={"#2C3957"}
+              textTransform={"uppercase"}
+            >
+              <b> Information :</b>
+            </Text>
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <p>{modalContent}</p>
-            <pre>{JSON.stringify(nodeState, null, 2)}</pre>{" "}
+            <Text fontWeight="bold">Position:</Text>
+            {typeof modalContent === "object" && modalContent !== null ? (
+              <Text>{modalContent?.label}</Text>
+            ) : (
+              <Text>Position data not available</Text>
+            )}
+            {typeof modalContent === "object" &&
+            modalContent?.position !== "" ? (
+              <>
+                <Text fontWeight="bold">Officer:</Text>
+                <Text>{modalContent?.position}</Text>
+              </>
+            ) : null}
+            {typeof modalContent === "object" &&
+            modalContent?.description !== "" ? (
+              <>
+                <Text fontWeight="bold">Description:</Text>
+                <Text>{modalContent?.description}</Text>
+              </>
+            ) : null}
           </ModalBody>
         </ModalContent>
       </Modal>

@@ -19,7 +19,11 @@ function Tips() {
       overflowY={"auto"}
       padding={"15px 10px"}
     >
-      <Flex gap={"20px"}>
+      <Flex
+        gap={"20px"}
+        alignItems={"center"}
+        flexDirection={{ base: "column", md: "column", lg: "row" }}
+      >
         <img src={icon} alt="Icon" width={"50px"} height={"50px"} />
         <Text
           fontSize={"2xl"}
@@ -33,7 +37,7 @@ function Tips() {
       <br />
       <ul
         style={{
-          width: "70%",
+          width: { base: "inherit", md: "inherit", lg: "95%" },
           paddingLeft: "10px",
           borderBlock: "1px solid",
           paddingBlock: "10px",
@@ -76,8 +80,17 @@ function Tips() {
       >
         Where to Report Cybercrime:
       </Text>
-      <ol>
-        <li>
+      <ol
+        style={{
+          width: { base: "inherit", md: "inherit", lg: "95%" },
+          paddingLeft: "10px",
+          borderBlock: "1px solid",
+          paddingBlock: "10px",
+          textAlign: "left",
+          textWrap: "wrap"
+        }}
+      >
+        <li style={{width: "inherit", paddingInline: "25px", alignItems: {base: "center", md: "center", lg: "start"}}}>
           <Text fontWeight={"bold"}>DOJ – Office of Cybercrime (OOC)</Text>
           <Text>Handles cybercrime-related legal matters</Text>
           <Text>
@@ -96,7 +109,7 @@ function Tips() {
           </Text>
           <Text>Tel: +63 2 8524 8216</Text>
         </li>
-        <li>
+        <li style={{width: "inherit", paddingInline: "25px"}}>
           <Text fontWeight={"bold"}>NBI – Cybercrime Division</Text>
           <Text>Investigates complex cybercrime cases</Text>
           <Text>
@@ -114,7 +127,7 @@ function Tips() {
           </Text>
           <Text>Tel: +63 2 8523 8231</Text>
         </li>
-        <li>
+        <li style={{width: "inherit", paddingInline: "25px"}}>
           <Text fontWeight={"bold"}>PNP – Anti-Cybercrime Group (ACG)</Text>
           <Text>Handles online scams, hacking, sextortion, identity theft</Text>
           <Text>
@@ -135,8 +148,8 @@ function Tips() {
           </Text>
           <Text>Hotline: (02) 723-0401 loc. 5313</Text>
         </li>
-        <li>
-          <Text fontWeight={"bold"}>
+        <li style={{width: "inherit", paddingInline: "25px"}}>
+        <Text fontWeight={"bold"}>
             Cybercrime Investigation and Coordinating Center (CICC)
           </Text>
           <Text>Centralized hotline and reporting system for online fraud</Text>

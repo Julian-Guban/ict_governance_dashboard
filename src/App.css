@@ -1,11 +1,13 @@
-
+body{
+  overflow-y:  scroll;
+}
 
 @media (max-width: 1200px) {
-    .chakra-text{
-        white-space: nowrap; /* Prevent text from wrapping */
-        overflow: hidden; /* Hide any overflowing content */
-        text-overflow: ellipsis; /* Show an ellipsis to indicate hidden text */
-    }
+    /* .chakra-text{
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+    } */
 
     .a-btn {
       width: fit-content;

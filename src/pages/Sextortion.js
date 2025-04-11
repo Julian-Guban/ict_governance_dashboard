@@ -19,7 +19,10 @@ function Sextortion() {
       overflowY={"auto"}
       padding={"15px 10px"}
     >
-      <Flex gap={"20px"}>
+      <Flex 
+        flexDirection={{ base: "column", md: "column", lg: "row" }}
+        alignItems={"center"}
+        gap={"20px"}>
         <img src={icon} alt="Icon" width={"50px"} height={"50px"} />
         <Text
           fontSize={"xl"}
@@ -32,7 +35,7 @@ function Sextortion() {
       </Flex>
       <br />
       <Text
-        width={"95%"}
+        width={{base: "inherit", md: "inherit", lg:"95%"}}
         fontSize={"sm"}
         borderBlock={"1px solid"}
         paddingBlock={"10px"}

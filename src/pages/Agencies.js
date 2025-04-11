@@ -1,17 +1,19 @@
-import { Box, Center, Text } from "@chakra-ui/react";
-import Workflow from "../pages/WorkFlow/Workflow";
-import React from "react";
+import { Box, Center } from "@chakra-ui/react";
+import React, { useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import GlobalContext from "../utils/contextProvider";
 
 function Agencies() {
+  const { setTab } = useContext(GlobalContext);
+
+  useEffect(() => {
+    setTab(2);
+  }, [setTab]);
+
   return (
     <Box width={"inherit"} backgroundColor={"White"} marginTop={"20px"}>
-      <Text>Info:</Text>
-      <Center>
-        <Outlet/>
-      </Center>
-      <Center>
-        <Workflow />
+      <Center width={"100%"} flexDirection={"column"} paddingBlock={"20px"}>
+        <Outlet />
       </Center>
     </Box>
   );

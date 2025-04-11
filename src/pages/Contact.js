@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Center,
+  Grid,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -110,12 +111,18 @@ function Contact() {
       >
         Contact | Agency Informations
       </Text>
-      <Box display="flex" flexWrap="wrap" justifyContent="space-between">
+      <Grid
+        width={"inherit"}
+        templateColumns={{ base: "1fr", md: "1fr 1fr", lg: "1fr 1fr 1fr 1fr" }}
+        marginTop={"15px"}
+        gap={"1em"}
+        alignItems={"center"}
+      >
         {agencies.map((agency, index) => (
           <Box
             key={index}
-            width="320px"
-            height={"inherit"}
+            width="100%"
+            height={"100%"}
             borderWidth="1px"
             backgroundColor={"#eff5fa"}
             borderRadius={"5px"}
@@ -140,8 +147,11 @@ function Contact() {
                 mt="2"
                 fontWeight="bold"
                 fontSize="xl"
-                height={"80px"}
+                height={"100%"}
                 textAlign={"center"}
+                whiteSpace={{base:"nowrap", md:"nowrap", lg: "wrap" }}
+                overflow={{base:"hidden", md:"hidden", lg: "visible" }}
+                textOverflow={{base:"ellipsis", md:"ellipsis", lg: "clip" }}
               >
                 {agency.name}
               </Text>
@@ -244,7 +254,7 @@ function Contact() {
             </ModalContent>
           </Modal>
         </Center>
-      </Box>
+      </Grid>
     </Center>
   );
 }

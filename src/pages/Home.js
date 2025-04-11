@@ -15,7 +15,7 @@ import doj from "../images/doj.png";
 import nbi from "../images/nbi.png";
 import npc from "../images/npc.png";
 import GlobalContext from "../utils/contextProvider";
-import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const COLORS = ["#266fe4", "#396bbc", "#4067a4", "#3a5683"];
@@ -58,6 +58,12 @@ function Home() {
       <Flex
         width={"100%"}
         alignItems={"center"}
+        flexDirection={{
+          base: "column",
+          md: "column",
+          lg: "column",
+          xl: "row",
+        }}
         justifyContent={"center"}
         gap={"1em"}
       >
@@ -115,7 +121,7 @@ function Home() {
         <Flex
           width={"100%"}
           height={"inherit"}
-          flexDirection={"column"}
+          flexDirection={{base: "column", md: "row", lg: "row", xl: "column"}}
           gap={"1em"}
           position={"relative"}
         >
@@ -231,10 +237,16 @@ function Home() {
         </Flex>
       </Flex>
 
-      <Flex width={"100%"} marginTop={"15px"} gap={"1em"}>
+      <Grid
+        width={"100%"}
+        templateColumns={{ base: "1fr", md: "1fr 1fr", lg: "1fr 1fr 1fr 1fr" }}
+        marginTop={"15px"}
+        gap={"1em"}
+        alignItems={"center"}
+      >
         <Center
           onClick={() => navigate("/agencies/dict")}
-          width={"95%"}
+          width={"100%"}
           height={"300px"}
           backgroundColor={"#eff5fa"}
           borderRadius={"5px"}
@@ -271,7 +283,7 @@ function Home() {
         </Center>
         <Center
           onClick={() => navigate("/agencies/doj")}
-          width={"95%"}
+          width={"100%"}
           height={"300px"}
           backgroundColor={"#eff5fa"}
           borderRadius={"5px"}
@@ -304,7 +316,7 @@ function Home() {
         </Center>
         <Center
           onClick={() => navigate("/agencies/nbi")}
-          width={"95%"}
+          width={"100%"}
           height={"300px"}
           backgroundColor={"#eff5fa"}
           borderRadius={"5px"}
@@ -337,7 +349,7 @@ function Home() {
         </Center>
         <Center
           onClick={() => navigate("/agencies/npc")}
-          width={"95%"}
+          width={"100%"}
           height={"300px"}
           backgroundColor={"#eff5fa"}
           borderRadius={"5px"}
@@ -368,7 +380,7 @@ function Home() {
             National Privacy Commission
           </Text>
         </Center>
-      </Flex>
+      </Grid>
     </Center>
   );
 }
